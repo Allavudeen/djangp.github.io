@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+<body style="background-color: burlywood;">
+    {% block content %}
+    {% if user.is_authenticated %}
+    <h1 class="header__text__h1">Hi {{ user.username }}</h1>
+    <h2 class="header__text__h2">Welcome to this Page</h2>
+    <p> Click above link to visit Gallery</p>
+    <!--<a href="{% url 'gallery' %}">Gallery</a>
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    -->
+    {% else %}
+    <p> You are not logged in </p>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    {% endblock %}
+</body>
